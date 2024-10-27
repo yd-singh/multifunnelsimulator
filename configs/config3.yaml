@@ -1,0 +1,36 @@
+modules:
+  - name: Phone Verification
+    is_start: true
+    success_rate: 0.95
+    cost_per_transaction: 2.5
+    time_to_complete: 35
+    next_module_on_success: "PAN Verification"
+    next_module_on_failure: "Failed"
+
+  - name: PAN Verification
+    success_rate: 0.88
+    cost_per_transaction: 1.2
+    time_to_complete: 22
+    next_module_on_success: "CKYC Verification"
+    next_module_on_failure: "Failed"
+
+  - name: CKYC Verification
+    success_rate: 0.70
+    cost_per_transaction: 2
+    time_to_complete: 10
+    next_module_on_success: "VCIP"
+    next_module_on_failure: "Digilocker Verification"
+
+  - name: Digilocker Verification
+    success_rate: 0.68
+    cost_per_transaction: 2.2
+    time_to_complete: 17
+    next_module_on_success: "VCIP"
+    next_module_on_failure: "Failed"
+
+  - name: VCIP
+    success_rate: 0.60
+    cost_per_transaction: 11
+    time_to_complete: 130
+    next_module_on_success: "Success"
+    next_module_on_failure: "Failed"
